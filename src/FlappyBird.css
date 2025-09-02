@@ -1,0 +1,158 @@
+.flappy-bird-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+}
+
+.flappy-bird-container h1 {
+  color: #2c3e50;
+  margin-bottom: 20px;
+  font-size: 2.5rem;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.game-area {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+  overflow: hidden;
+}
+
+.game-canvas {
+  display: block;
+  border: 3px solid #34495e;
+  border-radius: 10px;
+  cursor: pointer;
+  background: linear-gradient(to bottom, #87CEEB 0%, #98FB98 100%);
+}
+
+.game-canvas:hover {
+  box-shadow: 0 0 20px rgba(52, 152, 219, 0.5);
+}
+
+.game-info {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  pointer-events: none;
+}
+
+.scores {
+  display: flex;
+  justify-content: space-between;
+  color: #2c3e50;
+  font-weight: bold;
+  font-size: 18px;
+  text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+}
+
+.game-message {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255,255,255,0.95);
+  padding: 20px 30px;
+  border-radius: 15px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+  border: 2px solid #3498db;
+  max-width: 300px;
+}
+
+.game-message p {
+  margin: 8px 0;
+  color: #2c3e50;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.game-message.game-over {
+  border-color: #e74c3c;
+  background: rgba(255,245,245,0.95);
+}
+
+.game-message.game-over p:first-child {
+  color: #e74c3c;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.instructions {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.instructions p {
+  margin: 10px 0;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.instructions p:first-child {
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+/* Responsive design */
+@media (max-width: 850px) {
+  .flappy-bird-container {
+    padding: 10px;
+  }
+  
+  .game-canvas {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+  }
+  
+  .flappy-bird-container h1 {
+    font-size: 2rem;
+  }
+  
+  .scores {
+    font-size: 14px;
+  }
+  
+  .game-message {
+    max-width: 250px;
+    padding: 15px 20px;
+  }
+  
+  .game-message p {
+    font-size: 14px;
+  }
+  
+  .game-message.game-over p:first-child {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .flappy-bird-container h1 {
+    font-size: 1.5rem;
+  }
+  
+  .scores {
+    flex-direction: column;
+    gap: 5px;
+    font-size: 12px;
+  }
+  
+  .instructions {
+    padding: 15px;
+  }
+  
+  .instructions p {
+    font-size: 14px;
+  }
+}
