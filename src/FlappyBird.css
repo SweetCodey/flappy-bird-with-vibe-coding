@@ -1,9 +1,16 @@
 .flappy-bird-container {
+  width: 100%;
   max-width: 900px;
   margin: 0 auto;
   padding: 20px;
   text-align: center;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  box-sizing: border-box;
 }
 
 .flappy-bird-container h1 {
@@ -20,6 +27,8 @@
   border-radius: 10px;
   box-shadow: 0 8px 32px rgba(0,0,0,0.2);
   overflow: hidden;
+  width: 100%;
+  max-width: 800px;
 }
 
 .game-canvas {
@@ -28,6 +37,10 @@
   border-radius: 10px;
   cursor: pointer;
   background: linear-gradient(to bottom, #87CEEB 0%, #98FB98 100%);
+  width: 100%;
+  height: auto;
+  max-width: 800px;
+  aspect-ratio: 2/1;
 }
 
 .game-canvas:hover {
@@ -106,26 +119,70 @@
 /* Responsive design */
 @media (max-width: 850px) {
   .flappy-bird-container {
-    padding: 10px;
+    padding: 15px;
+    min-height: 100vh;
+  }
+  
+  .game-area {
+    width: 100%;
+    max-width: 100%;
   }
   
   .game-canvas {
     width: 100%;
-    max-width: 800px;
-    height: auto;
+    max-width: 100%;
+    border-width: 2px;
   }
   
   .flappy-bird-container h1 {
     font-size: 2rem;
+    margin-bottom: 15px;
+  }
+  
+  .scores {
+    font-size: 16px;
+  }
+  
+  .game-message {
+    max-width: 280px;
+    padding: 18px 25px;
+  }
+  
+  .game-message p {
+    font-size: 15px;
+  }
+  
+  .game-message.game-over p:first-child {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 600px) {
+  .flappy-bird-container {
+    padding: 10px;
+  }
+  
+  .flappy-bird-container h1 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+  }
+  
+  .game-area {
+    margin-bottom: 15px;
+  }
+  
+  .game-canvas {
+    border-width: 2px;
   }
   
   .scores {
     font-size: 14px;
+    gap: 8px;
   }
   
   .game-message {
-    max-width: 250px;
-    padding: 15px 20px;
+    max-width: 260px;
+    padding: 16px 20px;
   }
   
   .game-message p {
@@ -135,11 +192,30 @@
   .game-message.game-over p:first-child {
     font-size: 20px;
   }
+  
+  .instructions {
+    padding: 15px;
+    margin-top: 15px;
+  }
+  
+  .instructions p {
+    font-size: 14px;
+    margin: 8px 0;
+  }
 }
 
 @media (max-width: 480px) {
+  .flappy-bird-container {
+    padding: 8px;
+  }
+  
   .flappy-bird-container h1 {
     font-size: 1.5rem;
+    margin-bottom: 8px;
+  }
+  
+  .game-area {
+    margin-bottom: 12px;
   }
   
   .scores {
@@ -148,11 +224,33 @@
     font-size: 12px;
   }
   
+  .game-message {
+    max-width: 240px;
+    padding: 14px 18px;
+  }
+  
+  .game-message p {
+    font-size: 13px;
+    margin: 6px 0;
+  }
+  
+  .game-message.game-over p:first-child {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
   .instructions {
-    padding: 15px;
+    padding: 12px;
+    margin-top: 12px;
   }
   
   .instructions p {
+    font-size: 13px;
+    margin: 6px 0;
+  }
+  
+  .instructions p:first-child {
     font-size: 14px;
+    margin-bottom: 10px;
   }
 }
