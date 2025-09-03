@@ -39,6 +39,26 @@ function FlappyBird() {
     frameCount: 0
   })
 
+  // Update canvas size to maintain aspect ratio
+  const updateCanvasSize = useCallback(() => {
+    const canvas = canvasRef.current
+    if (!canvas) return
+
+    const container = canvas.parentElement
+    const containerWidth = container.clientWidth
+    const aspectRatio = GAME_CONFIG.CANVAS_WIDTH / GAME_CONFIG.CANVAS_HEIGHT
+    
+    let canvasWidth = Math.min(containerWidth - 20, GAME_CONFIG.CANVAS_WIDTH)
+    let canvasHeight = canvasWidth / aspectRatio
+
+    canvas.style.width = `${canvasWidth}px`
+    canvas.style.height = `${canvasHeight}px`
+    
+    // Set internal resolution
+    canvas.width = GAME_CONFIG.CANVAS_WIDTH
+    canvas.height = GAME_CONFIG.CANVAS_HEIGHT
+  }, [])
+
   const jump = useCallback(() => {
     if (gameState === GAME_STATES.START) {
       setGameState(GAME_STATES.PLAYING)
@@ -166,6 +186,17 @@ function FlappyBird() {
 
     gameLoopRef.current = requestAnimationFrame(gameLoop)
   }, [gameState, score, highScore, checkCollision])
+
+  useEffect(() => {
+    updateCanvasSize()
+    
+    const handleResize = () => {
+      updateCanvasSize()
+    }
+    
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [updateCanvasSize])
 
   useEffect(() => {
     gameLoopRef.current = requestAnimationFrame(gameLoop)
