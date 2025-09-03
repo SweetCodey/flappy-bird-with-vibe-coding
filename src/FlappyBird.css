@@ -4,6 +4,8 @@
   padding: 20px;
   text-align: center;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .flappy-bird-container h1 {
@@ -20,6 +22,8 @@
   border-radius: 10px;
   box-shadow: 0 8px 32px rgba(0,0,0,0.2);
   overflow: hidden;
+  width: 100%;
+  max-width: 800px;
 }
 
 .game-canvas {
@@ -28,6 +32,10 @@
   border-radius: 10px;
   cursor: pointer;
   background: linear-gradient(to bottom, #87CEEB 0%, #98FB98 100%);
+  width: 100%;
+  height: auto;
+  max-width: 800px;
+  aspect-ratio: 2 / 1;
 }
 
 .game-canvas:hover {
@@ -106,17 +114,24 @@
 /* Responsive design */
 @media (max-width: 850px) {
   .flappy-bird-container {
-    padding: 10px;
+    padding: 15px;
+    max-width: 100%;
+  }
+  
+  .game-area {
+    width: 100%;
+    margin-bottom: 15px;
   }
   
   .game-canvas {
     width: 100%;
-    max-width: 800px;
-    height: auto;
+    max-width: 100%;
+    border-width: 2px;
   }
   
   .flappy-bird-container h1 {
     font-size: 2rem;
+    margin-bottom: 15px;
   }
   
   .scores {
@@ -124,7 +139,7 @@
   }
   
   .game-message {
-    max-width: 250px;
+    max-width: 280px;
     padding: 15px 20px;
   }
   
@@ -135,11 +150,28 @@
   .game-message.game-over p:first-child {
     font-size: 20px;
   }
+  
+  .instructions {
+    margin-top: 15px;
+  }
 }
 
 @media (max-width: 480px) {
+  .flappy-bird-container {
+    padding: 10px;
+  }
+  
   .flappy-bird-container h1 {
     font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .game-area {
+    margin-bottom: 10px;
+  }
+  
+  .game-canvas {
+    border-width: 2px;
   }
   
   .scores {
@@ -148,11 +180,50 @@
     font-size: 12px;
   }
   
+  .game-message {
+    max-width: 240px;
+    padding: 12px 15px;
+  }
+  
+  .game-message p {
+    font-size: 13px;
+    margin: 6px 0;
+  }
+  
+  .game-message.game-over p:first-child {
+    font-size: 18px;
+  }
+  
   .instructions {
-    padding: 15px;
+    padding: 12px;
+    margin-top: 10px;
   }
   
   .instructions p {
-    font-size: 14px;
+    font-size: 13px;
+    margin: 8px 0;
+  }
+}
+
+@media (max-width: 320px) {
+  .flappy-bird-container {
+    padding: 8px;
+  }
+  
+  .flappy-bird-container h1 {
+    font-size: 1.3rem;
+  }
+  
+  .game-message {
+    max-width: 200px;
+    padding: 10px 12px;
+  }
+  
+  .instructions {
+    padding: 10px;
+  }
+  
+  .instructions p {
+    font-size: 12px;
   }
 }
